@@ -7,6 +7,11 @@
     "npm": "5.4.2"
   },
   "dependencies": {
+    "axios": "^0.16.2",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
     "concurrently": "^3.5.0",
@@ -22,26 +27,31 @@
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0",
     "passport-local": "^1.0.0",
+    "prop-types": "^15.5.10",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-redux": "^5.0.6",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "^1.0.14"
+    "react-scripts": "^1.0.14",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
+    "webpack": "^3.10.0"
   },
   "scripts": {
-    "test": "nodemon  --exec 'mocha'",
-    "start": "node server.js",
-    "server": "nodemon server.js",
-    "client": "npm run start --prefix shopping-cart-app",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix shopping-cart-app && npm run build --prefix shopping-cart-app"
+    "start": "webpack --config webpack.config.js",
+    "build": "webpack"
   },
   "devDependencies": {
+    "css-loader": "^0.28.7",
     "eslint": "^4.8.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.5.1",
-    "mocha": "^3.5.3"
+    "extract-text-webpack-plugin": "^3.0.2",
+    "mocha": "^3.5.3",
+    "style-loader": "^0.19.1"
   }
 }

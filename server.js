@@ -31,19 +31,19 @@ app.use(express.static('./shopping-cart-app/src'));
 
 // COOKIE SESSION
 app.use(cookieSession({
-  // cookie will last for 30 days
-  maxAge: 30 * 24 * 60 * 60 * 1000,
-  keys: [keys.cookieKey],
+// cookie will last for 30 days
+	maxAge: 30 * 24 * 60 * 60 * 1000,
+	keys: [keys.cookieKey],
 }));
 
 // passport-local cookies
 app.use(cookieParser()); // read cookies (needed for auth)
 // session secret
 app.use(session({
-  secret: 'cloudmerch',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false },
+	secret: 'cloudmerch',
+	resave: false,
+	saveUninitialized: true,
+	cookie: { secure: false },
 }));
 
 // PASSPORT ===================================================
@@ -58,16 +58,16 @@ const db = mongoose.connection;
 mongoose.Promise = global.Promise;
 
 mongoose.connect(keys.mongoURI, {
-  useMongoClient: true,
+	useMongoClient: true,
 });
 
 db
-  .on('error', (error) => {
-    console.warn('Warning', error);
-  })
-  .once('open', () => {
-    console.log('Successfully connected to database!');
-  });
+	.on('error', (error) => {
+		console.warn('Warning', error);
+	})
+	.once('open', () => {
+		console.log('Successfully connected to database!');
+	});
 
 
 app.use(routes);
@@ -75,15 +75,15 @@ require('./controllers/passportLocal.js')(app, passport);
 
 // tell Node/Express to serve static assets in production
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('shopping-cart-app/build'));
+	app.use(express.static('shopping-cart-app/build'));
 
-  const path = require('path');
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'shopping-cart-app', 'build', 'index.html'));
-  });
+	const path = require('path');
+	app.get('*', (req, res) => {
+		res.sendFile(path.resolve(__dirname, 'shopping-cart-app', 'build', 'index.html'));
+	});
 }
 
 // LISTEN TO process.env.PORT or 3001 ==========================
 app.listen(PORT, () => {
-  console.log(`listening on port ${PORT}`);
+	console.log(`listening on port ${PORT}`);
 });

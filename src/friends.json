@@ -1,0 +1,38 @@
+[
+	{
+		"id": 1,
+		"name": "Store1",
+		"storeImage": "http://placeimg.com/640/480/any",
+		"image1": "http://placeimg.com/640/480/any",
+		"image2": "http://placeimg.com/640/480/any",
+		"image3": "http://placeimg.com/640/480/any",
+		"description": "Store1 description"
+	},
+	{
+		"id": 2,
+	"name": "Store2",
+		"storeImage": "http://placeimg.com/640/480/any",
+		"image1": "http://placeimg.com/640/480/any",
+		"image2": "http://placeimg.com/640/480/any",
+		"image3": "http://placeimg.com/640/480/any",
+		"description": "Store1 description"
+	},
+	{
+		"id": 3,
+		"name": "Store3",
+		"storeImage": "http://placeimg.com/640/480/any",
+		"image1": "http://placeimg.com/640/480/any",
+		"image2": "http://placeimg.com/640/480/any",
+		"image3": "http://placeimg.com/640/480/any",
+		"description": "Store1 description"
+	},
+	{
+		"id": 4,
+		"name": "Store4",
+		"storeImage": "http://placeimg.com/640/480/any",
+		"image1": "http://placeimg.com/640/480/any",
+		"image2": "http://placeimg.com/640/480/any",
+		"image3": "http://placeimg.com/640/480/any",
+		"description": "Store1 description"
+	}
+]

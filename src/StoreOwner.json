@@ -1,0 +1,49 @@
+[
+	{   
+		"id": 1,
+		"name": "The Original",
+		"price": "$5.00",
+		"description": "The original salsa, a tomato and onion based salsa made with 5 whole jalapenos and 1 habanero pepper per 8 oz jar",
+		"img": "http://placeimg.com/640/480/nature",
+		"quantity": 5,
+		"department": "food",
+		"keywords": [
+			"salsa",
+			"food",
+			"spicy",
+			"mexican"
+		]
+	},
+	{
+		"id": 2,
+		"name": "Verde Salsa",
+		"price": "$6.00",
+		"description": "Our second best seller, a salsa made with tomatillos and zesty lime. Mild in spice.",
+		"img": "http://placeimg.com/640/480/any",
+		"quantity": 3,
+		"department": "food",
+		"keywords": [
+			"salsa",
+			"food",
+			"mexican"
+		]
+	},
+		{
+		"id": 3,
+		"name": "Salsa",
+		"price": "$3.00",
+		"description": "It's salsa, good salsa... but just salsa",
+		"img": "http://placeimg.com/640/480/animals",
+		"quantity": 3,
+		"department": "food",
+		"keywords": [
+				"salsa",
+				"food",
+				"mexican"
+		]
+	}
+]
+
+
+
+

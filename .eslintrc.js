@@ -2,9 +2,13 @@ module.exports = {
     "env": {
         "browser": true,
         "commonjs": true,
-        "es6": true
+        "es6": true,
+        "node": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
     "parserOptions": {
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
@@ -30,7 +34,11 @@ module.exports = {
         ],
         "semi": [
             "error",
-            "never"
-        ]
-    }
+            "always"
+        ],
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
+        "comma-dangle": [2, "always-multiline"],
+        "no-console": 0
+    },
 };

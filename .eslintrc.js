@@ -40,6 +40,7 @@ module.exports = {
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
         "comma-dangle": [2, "always-multiline"],
-        "no-console": 0
+        "no-console": 0,
+        "react/prop-types": 0
     },
 };

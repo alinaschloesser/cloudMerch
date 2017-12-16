@@ -1,11 +1,19 @@
+const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+const hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true';
 
 module.exports = {
-	entry: './src/index.js',
+	entry: {
+		app: ['./src/index.js', hotMiddlewareScript],
+	},
 	output: {
-		filename: 'bundle.js',
+		filename: '[name].bundle.js',
 		path: path.resolve(__dirname, 'dist'),
+		publicPath: '/',
 	},
 	module: {
 		rules: [
@@ -28,7 +36,21 @@ module.exports = {
 			},
 		],
 	},
+	devtool: 'inline-source-map',
+	devServer: {
+		contentBase: './dist',
+	},
 	plugins: [
+		new CleanWebpackPlugin(['dist']),
+		new HtmlWebpackPlugin({
+			// Required
+			inject: false,
+			template: require('html-webpack-template'),	
+			appMountId: 'root',
+		}),
 		new ExtractTextPlugin('style.css'),
+		new webpack.optimize.OccurrenceOrderPlugin(),
+		new webpack.HotModuleReplacementPlugin(),
+		new webpack.NoEmitOnErrorsPlugin(),
 	],
 };

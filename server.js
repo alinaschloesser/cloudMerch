@@ -1,5 +1,7 @@
 // Dependencies ================================================
 const express = require('express');
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
@@ -16,6 +18,8 @@ require('./services/passport');
 
 // Create Instance of Express
 const app = express();
+const webpackConfig = require('./webpack.config');
+const compiler = webpack(webpackConfig);
 const PORT = process.env.PORT || 3001;
 
 require('./config/passport')(passport); // pass passport for configuration
@@ -27,8 +31,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
-app.use(express.static('./shopping-cart-app/src'));
+app.use(express.static('./src'));
 
+// webpack-dev-middleware and use webpack.config.js
+// config file as a base.
+app.use(webpackDevMiddleware(compiler, {
+	noInfo: true, publicPath: webpackConfig.output.publicPath,
+}));
+app.use(require('webpack-hot-middleware')(compiler));
 // COOKIE SESSION
 app.use(cookieSession({
 // cookie will last for 30 days
@@ -74,14 +84,14 @@ app.use(routes);
 require('./controllers/passportLocal.js')(app, passport);
 
 // tell Node/Express to serve static assets in production
-if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('shopping-cart-app/build'));
+// if (process.env.NODE_ENV === 'production') {
+// 	app.use(express.static('shopping-cart-app/build'));
 
-	const path = require('path');
-	app.get('*', (req, res) => {
-		res.sendFile(path.resolve(__dirname, 'shopping-cart-app', 'build', 'index.html'));
-	});
-}
+// 	const path = require('path');
+// 	app.get('*', (req, res) => {
+// 		res.sendFile(path.resolve(__dirname, 'shopping-cart-app', 'build', 'index.html'));
+// 	});
+// }
 
 // LISTEN TO process.env.PORT or 3001 ==========================
 app.listen(PORT, () => {

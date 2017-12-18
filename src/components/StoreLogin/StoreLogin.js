@@ -1,5 +1,5 @@
 import React from 'react';
-import './StoreLogin.css';
+import '../../css/style.css';
 
 const StoreLogin = props => (
 	<div className="everything">

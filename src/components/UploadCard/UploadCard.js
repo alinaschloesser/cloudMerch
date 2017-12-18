@@ -1,5 +1,5 @@
 import React from 'react';
-import './UploadCard.css';
+import '../../css/style.css';
 
 class UploadCard extends React.Component {
 

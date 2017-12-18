@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Wrapper from '../../Wrapper';
 import Header from '../../Header';
 import LocalLoginAction from './LocalLoginAction';
-import './LocalLogin.css';
+import '../../../css/style.css';
 
 class LocalLogin extends Component {
 	

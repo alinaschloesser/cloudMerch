@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Header from '../../Header';
 import AddNewStoreAction from './AddNewStoreAction';
-import './AddNewStore.css';
+import '../../../css/style.css';
 
 class Signup extends Component {
 	

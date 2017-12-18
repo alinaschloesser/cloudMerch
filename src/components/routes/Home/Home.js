@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import StoreCard from '../../StoreCard';
 import Wrapper from '../../Wrapper';
 import Header from '../../Header';
-// import StoreLogin from "../../StoreLogin";
-import './Home.css';
+import '../../../css/style.css';
 
 class Home extends Component {
 	constructor(props) {

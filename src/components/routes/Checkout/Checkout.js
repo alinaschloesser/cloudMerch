@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Wrapper from '../../Wrapper';
 import Header from '../../Header';
 import Cart from '../../Cart';
-import './Checkout.css';
+import '../../../css/style.css';
 
 class Checkout extends Component {
 	constructor(props) {

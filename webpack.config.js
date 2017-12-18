@@ -34,6 +34,12 @@ module.exports = {
 					use: 'css-loader',
 				}),
 			},
+			{
+				test: /\.(png|svg|jpg|gif)$/,
+				use: [
+					'file-loader',
+				],
+			},
 		],
 	},
 	devtool: 'inline-source-map',
@@ -47,6 +53,12 @@ module.exports = {
 			inject: false,
 			template: require('html-webpack-template'),	
 			appMountId: 'root',
+
+			links: [
+				'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
+			],
+			favicon: 'public/cloudMerch.png',
+			title: 'CloudMerch',
 		}),
 		new ExtractTextPlugin('style.css'),
 		new webpack.optimize.OccurrenceOrderPlugin(),

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import './Header.css';
+import '../../css/style.css';
 
 class Header extends Component {
 

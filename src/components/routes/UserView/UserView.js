@@ -5,8 +5,7 @@ import Wrapper from '../../Wrapper';
 import Header from '../../Header';
 import StoreLogin from '../../StoreLogin';
 import UploadCard from '../../UploadCard';
-
-import './UserView.css';
+import '../../../css/style.css';
 
 const Edit = props => (
 	<div className="user-edit">

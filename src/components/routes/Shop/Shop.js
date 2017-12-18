@@ -4,7 +4,7 @@ import ProductCard from '../../ProductCard';
 import Wrapper from '../../Wrapper';
 import Header from '../../Header';
 import StoreLogin from '../../StoreLogin';
-import './Shop.css';
+import '../../../css/style.css';
 
 
 const AddToCartButton = props => (

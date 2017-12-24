@@ -55,20 +55,49 @@ class Header extends Component {
 
 	render() {
 		return (
-			<nav className="navbar">
+			<nav className="navbar" role="navigation" aria-label="main navigation">
 				<div className="navbar-brand">
 					<div className="navbar-item">
-
 						<Link to="/" className="logo">
 							<div className="title"> cM </div>
 							<div className="subtitle"> cloudMerch </div>
 						</Link>
-
+					</div>
+					<div className="navbar-item">
+						<div className="search-input">
+							<p className="control">
+								<input className="input search-bar-input" name="searchTerm" type="text" placeholder="Search all stores"  value={this.state.searchTerm} onChange={this.handleChange} onKeyPress={this.handleKeyPress}/>
+							</p>
+						</div>
+						<button className="button search" onClick={this.handleClick}>
+								<span className="icon is-small is-left">
+									<i className="fa fa-search" />
+								</span>
+							</button>
+					</div>
+					
+					{/* <button className="button navbar-burger">
+						<span>search</span>
+						<span>login</span>
+						<span>login with Google</span>
+						<span>sell with us!</span>
+					</button> */}
+					{/* <div className="navbar-item"> 
+						{this.renderContent()}
+						<Link to="/checkout" className="cart button"><i className="fa fa-shopping-cart"></i></Link>
+					</div> */}
+				</div>
+				{/*<div className="navbar-menu">*/}
+				<div className="navbar-end">
+					<div className= "navbar-item">
+						{this.renderContent()}
+					</div>
+					<div className= "navbar-item">
+						<Link to="/checkout" className="cart button"><i className="fa fa-shopping-cart"></i></Link>
 					</div>
 				</div>
-				<div className="navbar-menu">
-					<div className="navbar-start">
-						<div className="field">
+				{/*
+						 <div className="field">
 							<div className="search-input">
 								<p className="control">
 									<input className="input search-bar-input" name="searchTerm" type="text" placeholder="Search all stores"  value={this.state.searchTerm} onChange={this.handleChange} onKeyPress={this.handleKeyPress}/>
@@ -81,13 +110,14 @@ class Header extends Component {
 									<i className="fa fa-search" />
 								</span>
 							</button>
-						</div>
+						</div> 
 					</div>
 					<div className="navbar-end">
 						{this.renderContent()}
 						<Link to="/checkout" className="cart button"><i className="fa fa-shopping-cart"></i></Link>
 					</div>
 				</div>
+				*/}
 
 			</nav>
 		);

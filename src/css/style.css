@@ -34,16 +34,16 @@
 	border: none;
 }
 .navbar-brand {
-	text-align: center;
+	/* text-align: center;
 	font-size: 2.5rem;
-	padding: 0 20px;
+	padding: 0 20px; */
 }
 .logo{
-	margin-left: 40px;
+	/* margin-left: 40px; */
 }
 
 .search{
-	border: none !important;
+	/* border: none !important; */
 }
 
 .title{
@@ -53,17 +53,22 @@
   color: #98B7C8;
 }
 .navbar{
-	background-color: white;
+	/* background-color: white;
 	width: 100%;
 	height: 100%;
-	margin: 0;
+	margin: 0; */
 }
 .navbar-menu{
-	margin-top: 20px;
+	/* margin-top: 20px; */
 }
 .search-input{
-	margin-left: 80px;
-	width: 300px;
+	/* margin-left: 80px;
+  width: 300px; */
+  /* padding: auto 5%; */
+}
+.navbar-item{
+  margin: 0 auto;
+  display: inline-block; 
 }
 .input.is-active, .input.is-focused, .input:active, .input:focus, .textarea.is-active, .textarea.is-focused, .textarea:active, .textarea:focus, .button:focus:not(:active), .button.is-focused, .button:focus{
 	border-color: #9EC7DD;
@@ -71,49 +76,49 @@
 }
 
 .cart{
-	font-size: 1.25em;
+	/* font-size: 1.25em;
 	padding: 5px 10px;
 	margin-right: 25px;
 	margin-top: 0;
-	color: #000;
+	color: #000; */
 }
 button.search{
-	margin-left: 10px;
+	/* margin-left: 10px;
 	font-size: 1em;
-	padding: 0 15px;
+	padding: 0 15px; */
 	color: #9EC7DD;
 	border: none;
 }
 
 .dashboard, .google-login, .sell-with-us{
-	height: 1.5em;
-	font-size: .7em;
-	margin: 7px 15px;
+	/* height: 1.5em;
+	font-size: .7em; */
+	/* margin: 7px 15px; */
 	/*margin-top: 40px;*/
 	color: #9EC7DD;
 }
 
 .header-links{
-	padding-top: 7px;
+	/* padding-top: 7px; */
 }
 
 .sell-with-us{
-	padding-right: 27px;
+	/* padding-right: 27px; */
 	border-right: solid 1px black;
 }
 
 .dashboard{
-	padding-right: 27px;
+	/* padding-right: 27px; */
 	border-right: solid 1px black;
 	color: #9EC7DD;
 }
 
 .navbar-end{
-	margin-left: 100px;
+	/* margin-left: 100px; */
 }
 
 .log-out{
-	padding-left: 27px;
+	/* padding-left: 27px; */
 	color: #9EC7DD;
 }
 

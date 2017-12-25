@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Wrapper from '../../Wrapper';
 import Header from '../../Header';
 import Cart from '../../Cart';
 import '../../../css/style.css';
@@ -101,11 +100,9 @@ class Checkout extends Component {
 		return (
 			<div>
 				<Header />
-				<Wrapper>
-					<div className="columns">
-						<div className="column is-8">
-							{this.state.onlineCart && this.state.onlineCart.length &&
-						this.state.onlineCart.map(item =>
+				<div className="columns">
+					<div className="column is-8">
+						{this.state.onlineCart && this.state.onlineCart.length && this.state.onlineCart.map(item =>
 							<Cart
 								id={item._id}
 								key={item._id}
@@ -116,51 +113,39 @@ class Checkout extends Component {
 								quantity={1}
 							/>
 						)}
-						</div>
-				
-						<div className="column is-4">
-							<div className="box total-box">
-								<h1 className="title checkout-title">Ready to checkout?</h1>
-
-								<div className='field'>
-									<label className='label'>Name on Card</label>
-									<input className='control input' type='text' />
+					</div>
+					<div className="column is-4">
+						<div className="box total-box">
+							<h1 className="title checkout-title">Ready to checkout?</h1>
+							<div className='field'>
+								<label className='label'>Name on Card</label>
+								<input className='control input' type='text' />
+							</div>
+							<div className='field'>
+								<label className='label'>Card Number</label>
+								<input autoComplete='off' className='input card-number'  type='text'/>
+							</div>
+							<div className='field'>
+								<label className='label'>CVC</label>
+								<input autoComplete='off' className='input card-cvc' placeholder='ex. 311' size='4' type='text'/>
+							</div>
+							<div className='field expiration required'>
+								<label className='label'>Expiration</label>
+								<input className='input card-expiry-month' placeholder='MM'  type='text'/>
+								<input className='input card-expiry-year' placeholder='YYYY' type='text'/>
+							</div>
+							<div className='field' >        
+								<div className='label'>
+									Total:
+									<span className='amount'>  $</span>
 								</div>
-				
-							
-								<div className='field'>
-									<label className='label'>Card Number</label>
-									<input autoComplete='off' className='input card-number'  type='text'/>
-								</div>
-
-							
-								<div className='field'>
-									<label className='label'>CVC</label>
-									<input autoComplete='off' className='input card-cvc' placeholder='ex. 311' size='4' type='text'/>
-								</div>
-
-								<div className='field expiration required'>
-									<label className='label'>Expiration</label>
-									<input className='input card-expiry-month' placeholder='MM'  type='text'/>
-									<input className='input card-expiry-year' placeholder='YYYY' type='text'/>
-								</div>
-
-								<div className='field' >        
-									<div className='label'>
-										Total:
-										<span className='amount'>  $</span>
-									</div>
-
-								</div>
-							
-								<div className='field'>
-									<button className='button' type='submit'>Pay</button>
-								</div>
-				
+							</div>
+							<div className='field'>
+								<button className='button' type='submit'>Pay</button>
 							</div>
 						</div>
 					</div>
-				</Wrapper>
+				</div>
 			</div>
 		);
 	}

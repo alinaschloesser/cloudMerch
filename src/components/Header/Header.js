@@ -37,17 +37,17 @@ class Header extends Component {
 			return;
 		case false:
 			return (
-				<span className="header-links">
-					<a className="sell-with-us" href="/local-login">Login</a>
-					<a className="dashboard" href="/signup">Sell with us!</a>
-					<a className="google-login" href="/auth/google">Login With Google</a>
+				<span className="navbar-item">
+					<a className="navbar-item header-links" href="/local-login">Login</a>
+					<a className="navbar-item header-links" href="/signup">Sell with us!</a>
+					<a className="navbar-item header-links" href="/auth/google">Login With Google</a>
 				</span>
 			);
 		default:
 			return (
-				<span className="header-links">
-					<a className="dashboard" href="/user-login">Dashboard</a>
-					<a className="log-out" href="/api/logout">Logout</a>
+				<span className="navbar-item">
+					<a className="navbar-item header-links" href="/user-login">Dashboard</a>
+					<a className="navbar-item header-links" href="/api/logout">Logout</a>
 				</span>
 			);
 		}
@@ -63,62 +63,31 @@ class Header extends Component {
 							<div className="subtitle"> cloudMerch </div>
 						</Link>
 					</div>
+				</div>
+				<div className="navbar-menu">  
 					<div className="navbar-item">
 						<div className="search-input">
 							<p className="control">
 								<input className="input search-bar-input" name="searchTerm" type="text" placeholder="Search all stores"  value={this.state.searchTerm} onChange={this.handleChange} onKeyPress={this.handleKeyPress}/>
 							</p>
 						</div>
-						<button className="button search" onClick={this.handleClick}>
-								<span className="icon is-small is-left">
-									<i className="fa fa-search" />
-								</span>
-							</button>
+						<button className="button nav" onClick={this.handleClick}>
+							<i className="fa fa-search" />
+						</button>
 					</div>
-					
-					{/* <button className="button navbar-burger">
-						<span>search</span>
-						<span>login</span>
-						<span>login with Google</span>
-						<span>sell with us!</span>
-					</button> */}
-					{/* <div className="navbar-item"> 
-						{this.renderContent()}
-						<Link to="/checkout" className="cart button"><i className="fa fa-shopping-cart"></i></Link>
-					</div> */}
-				</div>
-				{/*<div className="navbar-menu">*/}
-				<div className="navbar-end">
+					{this.renderContent()}
 					<div className= "navbar-item">
-						{this.renderContent()}
-					</div>
-					<div className= "navbar-item">
-						<Link to="/checkout" className="cart button"><i className="fa fa-shopping-cart"></i></Link>
+						<Link to="/checkout" className="cart"><button className="button nav"><i className="fa fa-shopping-cart" /></button></Link>
 					</div>
 				</div>
-				{/*
-						 <div className="field">
-							<div className="search-input">
-								<p className="control">
-									<input className="input search-bar-input" name="searchTerm" type="text" placeholder="Search all stores"  value={this.state.searchTerm} onChange={this.handleChange} onKeyPress={this.handleKeyPress}/>
-								</p>
-							</div>
-						</div>
-						<div className="field">
-							<button className="button search" onClick={this.handleClick}>
-								<span className="icon is-small is-left">
-									<i className="fa fa-search" />
-								</span>
-							</button>
-						</div> 
+				<button className="button navbar-burger">
+					<div className="navbar-dropdown">
+						<span className="navbar-item"><button className="button"> not working</button></span>
+						<span className="navbar-item"><button className="button"> not working</button></span>
+						<span className="navbar-item"><button className="button"> not working</button></span>
+						<span className="navbar-item"><button className="button"> not working</button></span>
 					</div>
-					<div className="navbar-end">
-						{this.renderContent()}
-						<Link to="/checkout" className="cart button"><i className="fa fa-shopping-cart"></i></Link>
-					</div>
-				</div>
-				*/}
-
+				</button>
 			</nav>
 		);
 	}

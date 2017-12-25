@@ -39,8 +39,8 @@ class Header extends Component {
 			return (
 				<span className="navbar-item">
 					<a className="navbar-item header-links" href="/local-login">Login</a>
+					<a className="navbar-item header-links" href="/auth/google">Login with Google</a>
 					<a className="navbar-item header-links" href="/signup">Sell with us!</a>
-					<a className="navbar-item header-links" href="/auth/google">Login With Google</a>
 				</span>
 			);
 		default:

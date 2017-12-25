@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Wrapper from '../../Wrapper';
 import Header from '../../Header';
 import LocalLoginAction from './LocalLoginAction';
 import '../../../css/style.css';
@@ -40,32 +39,30 @@ class LocalLogin extends Component {
 		return (
 			<div>
 				<Header/>
-				<Wrapper>
-					<section className="hero">
-						<div className="hero-body">
-							<div className="container store-name">
-								<h1 className="title">Sign In</h1>
-							</div>
+				<section className="hero">
+					<div className="hero-body">
+						<div className="container store-name">
+							<h1 className="title">Sign In</h1>
 						</div>
-					</section>
-					<div className="container form-container"> 
-						<form onSubmit={this.handleSubmit}>
-							<div className="field">
-								<label className="label">
-							Username:
-									<input type="text" name="name" placeholder="Username" className="input" value={this.state.value} onChange={this.handleChange} />
-								</label>
-							</div>
-							<div className="field">
-								<label className="label">
-									Password:
-									<input type="password" className="input" placeholder="Password" name="password" value={this.state.value} onChange={this.handleChange} />
-								</label>
-							</div>
-							<button className="button signIn-button" type="submit">Sign In</button>
-						</form>
 					</div>
-				</Wrapper>
+				</section>
+				<div className="container form-container"> 
+					<form onSubmit={this.handleSubmit}>
+						<div className="field">
+							<label className="label">
+						Username:
+								<input type="text" name="name" placeholder="Username" className="input" value={this.state.value} onChange={this.handleChange} />
+							</label>
+						</div>
+						<div className="field">
+							<label className="label">
+								Password:
+								<input type="password" className="input" placeholder="Password" name="password" value={this.state.value} onChange={this.handleChange} />
+							</label>
+						</div>
+						<button className="button signIn-button" type="submit">Sign In</button>
+					</form>
+				</div>
 			</div>
 		);
 	}

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 // import StoreCard from '../../StoreCard';
 import ProductCard from '../../ProductCard';
-import Wrapper from '../../Wrapper';
 import Header from '../../Header';
 import StoreLogin from '../../StoreLogin';
 import '../../../css/style.css';
@@ -47,30 +46,28 @@ class SearchResults extends Component {
 					handleClick={this.handleClick}
 					value={this.state.value}
 				/>
-				<Wrapper>
-					<StoreLogin
-						id="no id"
-						userName="Search Results"
-						userDescription=""
-					>
-						{this.state.results.map((product)  =>
-							<ProductCard
-								id={product._id}
-								key={product._id}
-								name={product.name}
-								img={product.img}
-								description={product.description}
-								price={product.price}
-							>
-								<AddToCartButton
-									id={product._id}  
-									addToCart={this.addToCart}
-								/>
-							</ProductCard>
-						)
-						}
-					</StoreLogin>
-				</Wrapper>
+				<StoreLogin
+					id="no id"
+					userName="Search Results"
+					userDescription=""
+				>
+					{this.state.results.map((product)  =>
+						<ProductCard
+							id={product._id}
+							key={product._id}
+							name={product.name}
+							img={product.img}
+							description={product.description}
+							price={product.price}
+						>
+							<AddToCartButton
+								id={product._id}  
+								addToCart={this.addToCart}
+							/>
+						</ProductCard>
+					)
+					}
+				</StoreLogin>
 			</div>
 		);
 	}

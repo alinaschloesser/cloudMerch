@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import StoreCard from '../../StoreCard';
-import Wrapper from '../../Wrapper';
 import Header from '../../Header';
 import '../../../css/style.css';
 
@@ -32,20 +31,19 @@ class Home extends Component {
 		return (
 			<div>
 				<Header />
-				<Wrapper>
-					{this.state.stores && this.state.stores.length && this.state.stores.map((store)=>
-						<StoreCard 
-							key={store._id}
-							id={store._id}
-							name={store.name}
-							storeImage={store.image}
-							image1={store.products[0].img}
-							image2={store.products[1].img}
-							image3={store.products[2].img}
-							description={store.description} 
-							onClick={this.handleClick}           
-						/>)}
-				</Wrapper>
+				{this.state.stores && this.state.stores.length && this.state.stores.map((store)=>
+					<StoreCard 
+						key={store._id}
+						id={store._id}
+						name={store.name}
+						storeImage={store.image}
+						image1={store.products[0].img}
+						image2={store.products[1].img}
+						image3={store.products[2].img}
+						description={store.description} 
+						onClick={this.handleClick}           
+					/>)
+				}
 			</div>
 		);
 	}

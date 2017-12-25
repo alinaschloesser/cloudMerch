@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 // import StoreCard from '../../StoreCard';
 import ProductCard from '../../ProductCard';
-import Wrapper from '../../Wrapper';
 import Header from '../../Header';
 import StoreLogin from '../../StoreLogin';
 import UploadCard from '../../UploadCard';
@@ -88,37 +87,34 @@ class UserView extends Component {
 		return (
 			<div>
 				<Header />
-				<Wrapper>
-					<StoreLogin
-						id={this.state.storeInfo._id}
-						userName={this.state.storeInfo.name}
-						userDescription={this.state.storeInfo.description}
-					>
-
-						{this.state.storeInfo.products && this.state.storeInfo.products.length &&
-			this.state.storeInfo.products.map((product)  =>
-				<ProductCard
-					id={product._id}
-					key={product._id}
-					name={product.name}
-					img={product.img}
-					description={product.description}
-					price={product.price}
-					quantityText={'Quantity: '}
-					quantity={product.quantity}
+				<StoreLogin
+					id={this.state.storeInfo._id}
+					userName={this.state.storeInfo.name}
+					userDescription={this.state.storeInfo.description}
 				>
-					<Edit 
-						id={product._id}
-						deleteItem={this.deleteItem}
-						quantity={product.quantity}
-						updateQuantity={this.updateQuantity}
-					/>
-				</ProductCard>
 
-			)}
-						<UploadCard storeId={this.props.match.params.id} onSubmit={this.addItem}/>
-					</StoreLogin>
-				</Wrapper>
+					{this.state.storeInfo.products && this.state.storeInfo.products.length &&
+					this.state.storeInfo.products.map((product)  =>
+						<ProductCard
+							id={product._id}
+							key={product._id}
+							name={product.name}
+							img={product.img}
+							description={product.description}
+							price={product.price}
+							quantityText={'Quantity: '}
+							quantity={product.quantity}
+						>
+							<Edit 
+								id={product._id}
+								deleteItem={this.deleteItem}
+								quantity={product.quantity}
+								updateQuantity={this.updateQuantity}
+							/>
+						</ProductCard>
+					)}
+					<UploadCard storeId={this.props.match.params.id} onSubmit={this.addItem}/>
+				</StoreLogin>
 			</div>
 		);
 	}

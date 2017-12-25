@@ -66,6 +66,10 @@ a.navbar-item.header-links:hover{
   color: #000;
 }
 
+.fa-search{
+  font-size: 1.3em;
+}
+
 .fa-shopping-cart{
   font-size: 1.75em;
 }

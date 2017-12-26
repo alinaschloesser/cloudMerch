@@ -1,20 +1,22 @@
+require('react-hot-loader/patch');
 const webpack = require('webpack');
-const path = require('path');
+const { resolve } = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true';
+// 'react-hot-loader/patch',
 
-// const hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true';
 
 module.exports = {
 	entry: [
-		'react-hot-loader/patch',
+		'react-hot-loader/patch', 
+		'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true',
 		'./src/index.js',
 	],
 	output: {
 		filename: '[name].bundle.js',
-		path: path.resolve(__dirname, 'dist'),
-		publicPath: '/',
+		path: resolve(__dirname, 'dist'),
 	},
 	module: {
 		rules: [
@@ -50,16 +52,7 @@ module.exports = {
 	plugins: [
 		new CleanWebpackPlugin(['dist']),
 		new HtmlWebpackPlugin({
-			// Required
-			inject: false,
-			template: require('html-webpack-template'),	
-			appMountId: 'root',
-
-			links: [
-				'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
-			],
-			favicon: 'public/cloudMerch.png',
-			title: 'CloudMerch',
+			template: 'my-index.ejs',
 		}),
 		new ExtractTextPlugin('style.css'),
 		new webpack.optimize.OccurrenceOrderPlugin(),

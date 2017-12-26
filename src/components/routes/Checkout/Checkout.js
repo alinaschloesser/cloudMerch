@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../../Header';
 import Cart from '../../Cart';
-import '../../../css/style.css';
 
 class Checkout extends Component {
 	constructor(props) {

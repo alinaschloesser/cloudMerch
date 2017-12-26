@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../../Header';
 import SignupAction from './SignupAction';
-import '../../../css/style.css';
 
 class Signup extends Component {
 	

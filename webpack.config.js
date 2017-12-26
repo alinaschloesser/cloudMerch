@@ -31,10 +31,10 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				use: ExtractTextPlugin.extract({
+				use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
 					fallback: 'style-loader',
 					use: 'css-loader',
-				}),
+				})),
 			},
 			{
 				test: /\.(png|svg|jpg|gif)$/,

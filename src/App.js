@@ -3,7 +3,6 @@ import { hot } from 'react-hot-loader';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from './actions';
-
 import Home from './components/routes/Home';
 import UserView from './components/routes/UserView';
 import Shop from './components/routes/Shop';
@@ -12,7 +11,7 @@ import Signup from './components/routes/Signup';
 import SearchResults from './components/routes/SearchResults';
 import LocalLogin from './components/routes/LocalLogin';
 import AddNewStore from './components/routes/AddNewStore';
-
+import './css/style.css';
 
 const App = () =>{
 	return (

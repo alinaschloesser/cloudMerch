@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../../Header';
 import AddNewStoreAction from './AddNewStoreAction';
-import '../../../css/style.css';
 
 class Signup extends Component {
 	

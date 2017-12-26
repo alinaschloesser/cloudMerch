@@ -4,7 +4,6 @@ import ProductCard from '../../ProductCard';
 import Header from '../../Header';
 import StoreLogin from '../../StoreLogin';
 import UploadCard from '../../UploadCard';
-import '../../../css/style.css';
 
 const Edit = props => (
 	<div className="user-edit">

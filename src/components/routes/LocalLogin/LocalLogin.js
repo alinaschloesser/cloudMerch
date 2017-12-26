@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../../Header';
 import LocalLoginAction from './LocalLoginAction';
-import '../../../css/style.css';
 
 class LocalLogin extends Component {
 	

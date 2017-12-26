@@ -40,7 +40,6 @@
 }
 .navbar-item{
   margin: 0 auto;
-  display: inline-block; 
 }
 .input.is-active, .input.is-focused, .input:active, .input:focus, .textarea.is-active, .textarea.is-focused, .textarea:active, .textarea:focus, .button:focus:not(:active), .button.is-focused, .button:focus{
 	border-color: #9EC7DD;

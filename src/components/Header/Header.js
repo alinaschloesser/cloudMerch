@@ -76,14 +76,14 @@ class Header extends Component {
 						<Link to="/checkout" className="cart"><button className="button nav"><i className="fa fa-shopping-cart" /></button></Link>
 					</div>
 				</div>
-				<div className="button navbar-burger">
+				{/* <button className="button navbar-burger">
 					<div className="navbar-dropdown">
 						<span className="navbar-item"><button className="button"> not working</button></span>
 						<span className="navbar-item"><button className="button"> not working</button></span>
 						<span className="navbar-item"><button className="button"> not working</button></span>
 						<span className="navbar-item"><button className="button"> not working</button></span>
 					</div>
-				</div>
+				</button> */}
 			</nav>
 		);
 	}

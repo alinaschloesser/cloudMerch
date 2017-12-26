@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actions from './actions';
+import axios from 'axios';
 import Home from './components/routes/Home';
 import UserView from './components/routes/UserView';
 import Shop from './components/routes/Shop';
@@ -14,8 +14,25 @@ import AddNewStore from './components/routes/AddNewStore';
 import './css/style.css';
 
 class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+		};
+	}
+
+	fetchUser() {
+		axios
+			.get('/api/current_user')
+			// need to figure out how to read response if current_user is logged in then fix renderContent() in Header.js
+			.then(res=>{console.log(res)})
+			.catch(function (error) {
+				console.log(error);
+			  });
+
+	}
+
 	componentDidMount() {		
-		this.props.fetchUser();		
+		this.fetchUser();		
 	}
 	render(){
 		return (
@@ -35,4 +52,4 @@ class App extends Component {
 	}
 };
 
-export default connect(null, actions)(App);
+export default hot(module)(App);

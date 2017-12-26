@@ -11,8 +11,6 @@ class Header extends Component {
 		this.state = {
 			searchTerm: '',
 		};
-		this.handleClick = this.handleClick.bind(this);
-		this.handleChange = this.handleChange.bind(this);
 	}
 
 	handleClick() {

@@ -1,7 +1,5 @@
 // Dependencies ================================================
 const express = require('express');
-const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
@@ -14,15 +12,10 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 require('./database/models/seller');
 require('./services/passport');
-// passport routes
 
 // Create Instance of Express
 const app = express();
-const webpackConfig = require('./webpack.config');
-const compiler = webpack(webpackConfig);
 const PORT = process.env.PORT || 3001;
-
-require('./config/passport')(passport); // pass passport for configuration
 
 // Run Morgan and BodyParser
 app.use(logger('dev'));
@@ -35,10 +28,15 @@ app.use(express.static('./src'));
 
 // webpack-dev-middleware and use webpack.config.js
 // config file as a base.
+const webpack = require('webpack');
+const webpackConfig = require('./webpack.config');
+const compiler = webpack(webpackConfig);
+const webpackDevMiddleware = require('webpack-dev-middleware');
 app.use(webpackDevMiddleware(compiler, {
 	noInfo: true, publicPath: webpackConfig.output.publicPath,
 }));
 app.use(require('webpack-hot-middleware')(compiler));
+
 // COOKIE SESSION
 app.use(cookieSession({
 // cookie will last for 30 days
@@ -57,6 +55,7 @@ app.use(session({
 }));
 
 // PASSPORT ===================================================
+require('./config/passport')(passport); // pass passport for configuration
 app.use(passport.initialize());
 app.use(passport.session());
 require('./controllers/authRoutes')(app);
@@ -66,7 +65,6 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 // MONGODB STUFF ===============================================
 const db = mongoose.connection;
 mongoose.Promise = global.Promise;
-
 mongoose.connect(keys.mongoURI, {
 	useMongoClient: true,
 });
@@ -78,7 +76,6 @@ db
 	.once('open', () => {
 		console.log('Successfully connected to database!');
 	});
-
 
 app.use(routes);
 require('./controllers/passportLocal.js')(app, passport);

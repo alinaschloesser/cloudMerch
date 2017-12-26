@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 import ProductCard from '../../ProductCard';
 import Header from '../../Header';
 import StoreLogin from '../../StoreLogin';
-import '../../../css/style.css';
-
 
 const AddToCartButton = props => (
 	<span onClick={() => props.addToCart(props.id)}  className="remove">

@@ -1,20 +1,21 @@
 const webpack = require('webpack');
-const path = require('path');
+const { resolve } = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-
-// const hotMiddlewareScript = 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true';
+const publicPath = '/';
 
 module.exports = {
+	devtool: 'eval-source-map',
 	entry: [
 		'react-hot-loader/patch',
+		'webpack-hot-middleware/client',
 		'./src/index.js',
 	],
 	output: {
 		filename: '[name].bundle.js',
-		path: path.resolve(__dirname, 'dist'),
-		publicPath: '/',
+		path: resolve(__dirname, 'dist'),
+		publicPath: publicPath,
 	},
 	module: {
 		rules: [
@@ -30,10 +31,10 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				use: ExtractTextPlugin.extract({
+				use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
 					fallback: 'style-loader',
 					use: 'css-loader',
-				}),
+				})),
 			},
 			{
 				test: /\.(png|svg|jpg|gif)$/,
@@ -43,27 +44,14 @@ module.exports = {
 			},
 		],
 	},
-	devtool: 'inline-source-map',
-	devServer: {
-		contentBase: './dist',
-	},
 	plugins: [
 		new CleanWebpackPlugin(['dist']),
 		new HtmlWebpackPlugin({
-			// Required
-			inject: false,
-			template: require('html-webpack-template'),	
-			appMountId: 'root',
-
-			links: [
-				'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
-			],
-			favicon: 'public/cloudMerch.png',
-			title: 'CloudMerch',
+			template: 'my-index.ejs',
 		}),
 		new ExtractTextPlugin('style.css'),
-		new webpack.optimize.OccurrenceOrderPlugin(),
-		new webpack.HotModuleReplacementPlugin(),
+		new webpack.optimize.OccurrenceOrderPlugin(),		
+		new webpack.HotModuleReplacementPlugin(),		
 		new webpack.NoEmitOnErrorsPlugin(),
 	],
 };

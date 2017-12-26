@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import '../../css/style.css';
-
 class Header extends Component {
 
 	constructor(props) {
@@ -11,8 +9,6 @@ class Header extends Component {
 		this.state = {
 			searchTerm: '',
 		};
-		this.handleClick = this.handleClick.bind(this);
-		this.handleChange = this.handleChange.bind(this);
 	}
 
 	handleClick() {
@@ -80,14 +76,14 @@ class Header extends Component {
 						<Link to="/checkout" className="cart"><button className="button nav"><i className="fa fa-shopping-cart" /></button></Link>
 					</div>
 				</div>
-				<button className="button navbar-burger">
+				<div className="button navbar-burger">
 					<div className="navbar-dropdown">
 						<span className="navbar-item"><button className="button"> not working</button></span>
 						<span className="navbar-item"><button className="button"> not working</button></span>
 						<span className="navbar-item"><button className="button"> not working</button></span>
 						<span className="navbar-item"><button className="button"> not working</button></span>
 					</div>
-				</button>
+				</div>
 			</nav>
 		);
 	}

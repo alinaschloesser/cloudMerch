@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import StoreCard from '../../StoreCard';
 import Header from '../../Header';
-import '../../../css/style.css';
 
 class Home extends Component {
 	constructor(props) {
 		super(props);
-		this.handleClick = this.handleClick.bind(this);
 		this.state = { stores: [], query: '' };
 	}
 

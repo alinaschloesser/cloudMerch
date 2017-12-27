@@ -2,7 +2,7 @@ import React from 'react';
 
 const StoreCard = props => (
 
-	<div className="card" onClick={props.onClick} data-id={props.id}>
+	<div className="card store-card" onClick={props.onClick} data-id={props.id}>
 		<div className="card-header" data-id={props.id}>
 			<div className="card-image" data-id={props.id}>
 				<img className="image1" alt={props.name} src={props.image1} data-id={props.id}/>

@@ -29,19 +29,21 @@ class Home extends Component {
 		return (
 			<div>
 				<Header />
-				{this.state.stores && this.state.stores.length && this.state.stores.map((store)=>
-					<StoreCard 
-						key={store._id}
-						id={store._id}
-						name={store.name}
-						storeImage={store.image}
-						image1={store.products[0].img}
-						image2={store.products[1].img}
-						image3={store.products[2].img}
-						description={store.description} 
-						onClick={this.handleClick}           
-					/>)
-				}
+				<div className="store-card-container">
+					{this.state.stores && this.state.stores.length && this.state.stores.map((store)=>
+						<StoreCard 
+							key={store._id}
+							id={store._id}
+							name={store.name}
+							storeImage={store.image}
+							image1={store.products[0].img}
+							image2={store.products[1].img}
+							image3={store.products[2].img}
+							description={store.description} 
+							onClick={this.handleClick}           
+						/>)
+					}
+				</div>
 			</div>
 		);
 	}

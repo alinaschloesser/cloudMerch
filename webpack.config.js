@@ -50,6 +50,9 @@ module.exports = {
 			template: 'my-index.ejs',
 		}),
 		new ExtractTextPlugin('style.css'),
+		new webpack.optimize.CommonsChunkPlugin({
+			name: 'common',
+		}),
 		new webpack.optimize.OccurrenceOrderPlugin(),		
 		new webpack.HotModuleReplacementPlugin(),		
 		new webpack.NoEmitOnErrorsPlugin(),

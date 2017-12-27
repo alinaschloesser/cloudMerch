@@ -34,8 +34,9 @@ module.exports = {
             "single"
         ],
         "semi": [
-            "error",
-            "always"
+            2,
+            "always",
+            { "omitLastInOneLineBlock": true}
         ],
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",

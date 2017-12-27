@@ -27,27 +27,27 @@ class Header extends Component {
 		}
 	}
 
-	renderContent() {
-		switch (this.props.auth) {
-		case null:
-			return;
-		case false:
-			return (
-				<span className="navbar-item">
-					<a className="navbar-item header-links" href="/local-login">Login</a>
-					<a className="navbar-item header-links" href="/auth/google">Login with Google</a>
-					<a className="navbar-item header-links" href="/signup">Sell with us!</a>
-				</span>
-			);
-		default:
-			return (
-				<span className="navbar-item">
-					<a className="navbar-item header-links" href="/user-login">Dashboard</a>
-					<a className="navbar-item header-links" href="/api/logout">Logout</a>
-				</span>
-			);
-		}
-	}
+	// renderContent() {
+	// 	switch (this.props.auth) {
+	// 	case null:
+	// 		return;
+	// 	case false:
+	// 		return (
+	// 			<span className="navbar-item">
+	// 				<a className="navbar-item header-links" href="/local-login">Login</a>
+	// 				<a className="navbar-item header-links" href="/auth/google">Login with Google</a>
+	// 				<a className="navbar-item header-links" href="/signup">Sell with us!</a>
+	// 			</span>
+	// 		);
+	// 	default:
+	// 		return (
+	// 			<span className="navbar-item">
+	// 				<a className="navbar-item header-links" href="/user-login">Dashboard</a>
+	// 				<a className="navbar-item header-links" href="/api/logout">Logout</a>
+	// 			</span>
+	// 		);
+	// 	}
+	// }
 
 	render() {
 		return (
@@ -71,7 +71,12 @@ class Header extends Component {
 							<i className="fa fa-search" />
 						</button>
 					</div>
-					{this.renderContent()}
+					<span className="navbar-item">
+						<a className="navbar-item header-links" href="/local-login">Login</a>
+						<a className="navbar-item header-links" href="/auth/google">Login with Google</a>
+						<a className="navbar-item header-links" href="/signup">Sell with us!</a>
+					</span>
+					{/* {this.renderContent()} */}
 					<div className= "navbar-item">
 						<Link to="/checkout" className="cart"><button className="button nav"><i className="fa fa-shopping-cart" /></button></Link>
 					</div>

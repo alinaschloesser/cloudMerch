@@ -236,55 +236,55 @@ label{
 /* StoreCard */
 
 .card {
-    height: 324px;
-    width: 324px;
-    border-radius: 3.5px;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 25px;
-  }
-  .card:active, .card:hover{
-    box-shadow: 0 6px 12px #999, 0 6px 12px #999;
-  }
-  
-  .image1 {
-    height: 150px;
-    width: 200px;
-    float: left;
-    border-right: solid 1px white;
-  }
-  .image2, .image3{
-    height: 75px;
-    width: 124px;
-    float: right;
-  }
-  .image2 {
-    border-bottom: solid 1px white;
-  }
-  
-  .store-image{
-    border: solid 3px white;
-    height: 130px;
-    width: 130px;
-    border-radius: 100%;
-    position: absolute;
-    top: 27%;
-    left: 30%;
-  }
-  .store-card-content{
-    position: absolute;
-    top: 60%;
-    text-align: center;
-    width: 100%;
-  }
-  .storeName{
-    color: #5F7181 !important;
-  }
-  .description{
-    color: #5F7181;
-  }
-  
-  /* StoreLogin  */
+  height: 324px;
+  width: 324px;
+  border-radius: 3.5px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 25px;
+}
+.card:active, .card:hover{
+  box-shadow: 0 6px 12px #999, 0 6px 12px #999;
+}
+
+.image1 {
+  height: 150px;
+  width: 200px;
+  float: left;
+  border-right: solid 1px white;
+}
+.image2, .image3{
+  height: 75px;
+  width: 124px;
+  float: right;
+}
+.image2 {
+  border-bottom: solid 1px white;
+}
+
+.store-image{
+  border: solid 3px white;
+  height: 130px;
+  width: 130px;
+  border-radius: 100%;
+  position: absolute;
+  top: 27%;
+  left: 30%;
+}
+.store-card-content{
+  position: absolute;
+  top: 60%;
+  text-align: center;
+  width: 100%;
+}
+.storeName{
+  color: #5F7181 !important;
+}
+.description{
+  color: #5F7181;
+}
+
+/* StoreLogin  */
 
 
 .store-name{

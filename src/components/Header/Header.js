@@ -72,9 +72,9 @@ class Header extends Component {
 						</button>
 					</div>
 					<span className="navbar-item">
-						<a className="navbar-item header-links" href="/local-login">Login</a>
-						<a className="navbar-item header-links" href="/auth/google">Login with Google</a>
-						<a className="navbar-item header-links" href="/signup">Sell with us!</a>
+						<Link to="/local-login"><a className="navbar-item header-links">Login</a></Link>
+						<Link to="/auth/google"><a className="navbar-item header-links">Login with Google</a></Link>
+						<Link to="/signup"><a className="navbar-item header-links">Sell with us!</a></Link>
 					</span>
 					{/* {this.renderContent()} */}
 					<div className= "navbar-item">

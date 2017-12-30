@@ -6,14 +6,18 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const publicPath = '/';
 
 module.exports = {
-	devtool: 'eval-source-map',
-	entry: [
-		'react-hot-loader/patch',
-		'webpack-hot-middleware/client',
-		'./src/index.js',
-	],
+	devtool: 'cheap-module-eval-source-map',
+	entry: {
+		app: [
+			'react-hot-loader/patch',
+			'webpack-hot-middleware/client',
+			'./src/index.js',
+		],
+		vendor: ['react', 'react-dom', 'react-redux', 'redux-thunk', 'react-router'],
+	},
 	output: {
 		filename: '[name].bundle.js',
+		chunkFilename: '[name].chunk.js',
 		path: resolve(__dirname, 'dist'),
 		publicPath: publicPath,
 	},

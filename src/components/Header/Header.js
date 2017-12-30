@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class Header extends Component {
-
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
-			searchTerm: '',
+			term: '',
 		};
-	}
+		this.handleClick = this.handleClick.bind(this);
+		this.handleChange = this.handleChange.bind(this);
+	};
 
 	handleClick() {
 		window.location = /search-results/ + this.state.searchTerm;
@@ -72,9 +73,9 @@ class Header extends Component {
 						</button>
 					</div>
 					<span className="navbar-item">
-						<Link to="/local-login"><a className="navbar-item header-links">Login</a></Link>
-						<Link to="/auth/google"><a className="navbar-item header-links">Login with Google</a></Link>
-						<Link to="/signup"><a className="navbar-item header-links">Sell with us!</a></Link>
+						<Link to="/local-login"><button className="button nav">Login</button></Link>
+						<Link to="/auth/google"><button className="button nav">Login with Google</button></Link>
+						<Link to="/signup"><button className="button nav">Sell with us!</button></Link>
 					</span>
 					{/* {this.renderContent()} */}
 					<div className= "navbar-item">
@@ -92,10 +93,10 @@ class Header extends Component {
 			</nav>
 		);
 	}
-}
+};
 
 function mapStateToProps({ auth }) {
 	return { auth };
-}
+};
 
 export default connect(mapStateToProps)(Header);

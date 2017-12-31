@@ -19,10 +19,6 @@ class Home extends Component {
 			.then(stores => this.setState({stores}));
 	}
 
-	handleClick(e) {
-		console.log('The link was clicked.' +  e.target.dataset.id);
-		window.location = '/shop/' + e.target.dataset.id;
-	}
 
 	render() {
 
@@ -39,8 +35,7 @@ class Home extends Component {
 							image1={store.products[0].img}
 							image2={store.products[1].img}
 							image3={store.products[2].img}
-							description={store.description} 
-							onClick={this.handleClick}           
+							description={store.description}          
 						/>)
 					}
 				</div>

@@ -6,18 +6,14 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const publicPath = '/';
 
 module.exports = {
-	devtool: 'cheap-module-eval-source-map',
-	entry: {
-		app: [
-			'react-hot-loader/patch',
-			'webpack-hot-middleware/client',
-			'./src/index.js',
-		],
-		vendor: ['react', 'react-dom', 'react-redux', 'redux-thunk', 'react-router'],
-	},
+	devtool: 'inline-source-map',
+	entry: [
+		'react-hot-loader/patch',
+		'webpack-hot-middleware/client',
+		'./src/index.js',
+	],
 	output: {
-		filename: '[name].bundle.js',
-		chunkFilename: '[name].chunk.js',
+		filename: '[name].[hash].js',
 		path: resolve(__dirname, 'dist'),
 		publicPath: publicPath,
 	},
@@ -54,6 +50,14 @@ module.exports = {
 			template: 'my-index.ejs',
 		}),
 		new ExtractTextPlugin('style.css'),
+		new webpack.NamedModulesPlugin(),
+		new webpack.optimize.CommonsChunkPlugin({
+			name: 'vendor',
+			minChunks: ({ resource }) => /node_modules/.test(resource),
+		}),
+		new webpack.optimize.CommonsChunkPlugin({
+			name: 'manifest',
+		}),
 		new webpack.optimize.OccurrenceOrderPlugin(),		
 		new webpack.HotModuleReplacementPlugin(),		
 		new webpack.NoEmitOnErrorsPlugin(),

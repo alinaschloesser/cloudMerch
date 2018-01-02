@@ -1,65 +1,10 @@
-const webpack = require('webpack');
-const { resolve } = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const publicPath = '/';
+const commonConfig = require('./config/webpack.common');
+const webpackMerge = require('webpack-merge');
 
-module.exports = {
-	devtool: 'inline-source-map',
-	entry: [
-		'react-hot-loader/patch',
-		'webpack-hot-middleware/client',
-		'./src/index.js',
-	],
-	output: {
-		filename: '[name].[hash].js',
-		path: resolve(__dirname, 'dist'),
-		publicPath: publicPath,
-	},
-	module: {
-		rules: [
-			{
-				test: /\.js$/,
-				exclude: /(node_modules|bower_components)/,
-				use: {
-					loader: 'babel-loader',
-					options: {
-						presets: ['babel-preset-env', 'react'],
-					},
-				},
-			},
-			{
-				test: /\.css$/,
-				use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: 'css-loader',
-				})),
-			},
-			{
-				test: /\.(png|svg|jpg|gif)$/,
-				use: [
-					'file-loader',
-				],
-			},
-		],
-	},
-	plugins: [
-		new CleanWebpackPlugin(['dist']),
-		new HtmlWebpackPlugin({
-			template: 'my-index.ejs',
-		}),
-		new ExtractTextPlugin('style.css'),
-		new webpack.NamedModulesPlugin(),
-		new webpack.optimize.CommonsChunkPlugin({
-			name: 'vendor',
-			minChunks: ({ resource }) => /node_modules/.test(resource),
-		}),
-		new webpack.optimize.CommonsChunkPlugin({
-			name: 'manifest',
-		}),
-		new webpack.optimize.OccurrenceOrderPlugin(),		
-		new webpack.HotModuleReplacementPlugin(),		
-		new webpack.NoEmitOnErrorsPlugin(),
-	],
+module.exports = (env) => {
+	console.log(env);
+
+	const envConfig = require(`./config/webpack.${env.env}.js`);
+
+	return webpackMerge(commonConfig, envConfig);
 };

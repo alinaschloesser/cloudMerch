@@ -19,10 +19,6 @@ class Home extends Component {
 			.then(stores => this.setState({stores}));
 	}
 
-	// handleClick(e) {
-	// 	console.log('The link was clicked.' +  e.target.dataset.id);
-	// 	window.location = '/shop/' + e.target.dataset.id;
-	// }
 
 	render() {
 

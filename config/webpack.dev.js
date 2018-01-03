@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const publicPath = '/';
 
 const config = {
-	devtool: 'source-map',
+	devtool: 'eval-source-map',
 	entry: [
 		'react-hot-loader/patch',
 		'webpack-hot-middleware/client',
